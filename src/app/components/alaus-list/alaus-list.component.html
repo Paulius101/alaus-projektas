@@ -1,0 +1,7 @@
+<div class="list">
+    <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide *ngFor="let beer of alausService.bearList">
+            <app-alus-item [alus]="beer"></app-alus-item>
+        </ng-template>
+    </owl-carousel-o>
+</div>
