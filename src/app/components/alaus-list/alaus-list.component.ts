@@ -11,6 +11,7 @@ import {
 import {
   OwlOptions
 } from 'ngx-owl-carousel-o';
+import { gsap} from 'gsap';
 @Component({
   selector: 'app-alaus-list',
   templateUrl: './alaus-list.component.html',
@@ -19,7 +20,10 @@ import {
 export class AlausListComponent implements OnInit {
 
   constructor(public alausService: AlausServiceService) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const listAnim = gsap.timeline({ defaults: { ease: "power1.out" } });
+    listAnim.fromTo(".list", { opacity: 0 }, { opacity: 1, duration: 1 }, "3");
+  }
 
   customOptions: OwlOptions = {
     loop: true,

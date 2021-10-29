@@ -3,3 +3,7 @@ html {
   font-size: 62.5%;
   margin-top: 0px;
 }
+
+html body {
+  background-color: #d34f4f;
+}
