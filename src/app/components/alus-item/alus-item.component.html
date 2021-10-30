@@ -7,4 +7,8 @@
         <p class="details">Alkoholio procentine dalis: {{alus.abv | percent }}.</p>
         <p class="details">pH: {{alus.ph}}.</p>
     </div>
+    <div class="buttons">
+        <button (click)="onItemAdded.emit()">Pridėti į mėgstamiausius</button>
+        <button (click)="onItemRemoved.emit()">Išimti iš mėgstamiausių</button>
+    </div>
 </div>

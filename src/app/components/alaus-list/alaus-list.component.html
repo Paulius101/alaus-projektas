@@ -1,7 +1,8 @@
+<a routerLink="/favorites">Mėgstamiausi: {{favoritesService.favorites.length}}</a><br>
 <div class="list">
     <owl-carousel-o [options]="customOptions">
         <ng-template carouselSlide *ngFor="let beer of alausService.bearList">
-            <app-alus-item [alus]="beer"></app-alus-item>
+            <app-alus-item [alus]="beer" (onItemAdded)="addToFavorites(beer.id, beer.image_url)" (onItemRemoved)="removeFromFavorites(beer.id)"></app-alus-item>
         </ng-template>
     </owl-carousel-o>
 </div>

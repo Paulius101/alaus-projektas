@@ -2,11 +2,16 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routesComponent } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AlausListComponent } from './components/alaus-list/alaus-list.component';
 import { AlusItemComponent } from './components/alus-item/alus-item.component';
 import { OpeningEffectComponent } from './components/opening-effect/opening-effect.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
+import { FavortiesNormalizedPipe } from './pipes/favorties-normalized.pipe';
+import { IdToNamePipe } from './pipes/id-to-name.pipe';
+import { IdToImagePipe } from './pipes/id-to-image.pipe';
+import { DeadEndComponent } from './components/dead-end/dead-end.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +19,12 @@ import { OpeningEffectComponent } from './components/opening-effect/opening-effe
     AlausListComponent,
     AlusItemComponent,
     OpeningEffectComponent,
+    FavoritesComponent,
+    FavortiesNormalizedPipe,
+    IdToNamePipe,
+    IdToImagePipe,
+    DeadEndComponent,
+    routesComponent
   ],
   imports: [
     BrowserModule,

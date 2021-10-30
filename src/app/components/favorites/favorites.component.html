@@ -1,0 +1,9 @@
+<a routerLink="/items">Go back to beer list</a>
+<div class="favorites">
+    <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide *ngFor="let beer of (favoritesService.favorites | favortiesNormalized)">
+            <p>{{beer.itemId | idToName : alusService.bearList }}</p>
+            <img src="{{beer.itemId | idToImage: alusService.bearList}}" alt="image of some beer">
+        </ng-template>
+    </owl-carousel-o>
+</div>

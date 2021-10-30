@@ -12,6 +12,8 @@ import {
   OwlOptions
 } from 'ngx-owl-carousel-o';
 import { gsap} from 'gsap';
+import { FavoritesService } from 'src/app/services/favorites.service';
+
 @Component({
   selector: 'app-alaus-list',
   templateUrl: './alaus-list.component.html',
@@ -19,7 +21,7 @@ import { gsap} from 'gsap';
 })
 export class AlausListComponent implements OnInit {
 
-  constructor(public alausService: AlausServiceService) {}
+  constructor(public alausService: AlausServiceService,public favoritesService:FavoritesService ) {}
   ngOnInit(): void {
     const listAnim = gsap.timeline({ defaults: { ease: "power1.out" } });
     listAnim.fromTo(".list", { opacity: 0 }, { opacity: 1, duration: 1 }, "3");
@@ -46,6 +48,23 @@ export class AlausListComponent implements OnInit {
    
     },
     nav: true
+  }
+
+  public addToFavorites(itemId: number, imageUrl:string) {
+    // [] <--- Taip susikuria naujas masyvas
+    // [...kitasMasyvas] <--- Taip į masyvą "pažeriami" kito masyvo elementai
+    // [1, 2, 3]
+    // [...kitasMasyvas, 1]
+    this.favoritesService.favorites = [...this.favoritesService.favorites, {itemId, imageUrl}];
+  }
+
+    public removeFromFavorites(itemId: number) {
+    const itemIndex = this.favoritesService.favorites.indexOf(itemId);
+
+    if (itemIndex !== -1)
+      this.favoritesService.favorites.splice(itemIndex, 2);
+
+    this.favoritesService.favorites = [...this.favoritesService.favorites]; 
   }
 
 }

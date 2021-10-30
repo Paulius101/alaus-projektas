@@ -21,7 +21,10 @@ export class AlusItemComponent implements OnInit {
 
   @Output()
   onItemRemoved!: EventEmitter < void > ;
-  constructor() {}
+  constructor() {
+    this.onItemAdded = new EventEmitter < void > ();
+    this.onItemRemoved = new EventEmitter < void > ();
+  }
 
   ngOnInit(): void {}
 
