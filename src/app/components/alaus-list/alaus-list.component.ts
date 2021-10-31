@@ -9,9 +9,6 @@ import {
   AlausServiceService
 } from 'src/app/services/alaus-service.service';
 import {
-  OwlOptions
-} from 'ngx-owl-carousel-o';
-import {
   gsap
 } from 'gsap';
 import {
@@ -46,28 +43,6 @@ public order?:string
     }, "3");
   }
 
-  customOptions: OwlOptions = {
-    loop: true,
-    mouseDrag: true,
-    touchDrag: true,
-    pullDrag: true,
-    dots: true,
-    navSpeed: 700,
-    navText: ['', ''],
-    responsive: {
-      0: {
-        items: 1
-      },
-      400: {
-        items: 1
-      },
-      940: {
-        items: 1
-      },
-
-    },
-    nav: true
-  }
 
   public rodytiTamsu(): void {
     this.tipas = 'tamsus'
@@ -82,7 +57,7 @@ public order?:string
   }
 
 
-  public pagalph () :void {
+  public pagalAlk () :void {
     this.order = 'abv'
   }
   // public pagalph() {

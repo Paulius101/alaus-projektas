@@ -1,18 +1,15 @@
+<app-opening-effect></app-opening-effect>
 <a routerLink="/favorites">Mėgstamiausi: {{favoritesService.favorites.length}}</a>
 <div class="content">
     <div class="filters">
         <button (click)="rodytiTamsu()">Tamsus alus</button>
         <button (click)="rodytiSviesu()">Šviesus alus</button>
         <button (click)="rodytiVisus()">Visi</button>
-        <button (click)="pagalph()"></button>
+        <button (click)="pagalAlk()">Rikiuoti pagal alkoholio tūrį</button>
     </div>
 
-    <div class="list">
-        <owl-carousel-o [options]="customOptions">
-            <ng-template carouselSlide *ngFor="let beer of (alausService.bearList | alausTipas:tipas | order :order )">
-                <app-alus-item [alus]="beer" (onItemAdded)="addToFavorites(beer.id)" (onItemRemoved)="removeFromFavorites(beer.id)"></app-alus-item>
-            </ng-template>
-        </owl-carousel-o>
+    <div class="list" *ngFor="let beer of (alausService.bearList | alausTipas:tipas | order :order )">
+        <app-alus-item [alus]="beer" (onItemAdded)="addToFavorites(beer.id)" (onItemRemoved)="removeFromFavorites(beer.id)"></app-alus-item>
     </div>
 
 </div>
