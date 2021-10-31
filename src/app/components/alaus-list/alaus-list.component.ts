@@ -20,11 +20,14 @@ import { FavoritesService } from 'src/app/services/favorites.service';
   styleUrls: ['./alaus-list.component.scss']
 })
 export class AlausListComponent implements OnInit {
+public tamsus:boolean=false;
+public sviesus:boolean=false;
+public visi:boolean=true;
 
   constructor(public alausService: AlausServiceService,public favoritesService:FavoritesService ) {}
   ngOnInit(): void {
     const listAnim = gsap.timeline({ defaults: { ease: "power1.out" } });
-    listAnim.fromTo(".list", { opacity: 0 }, { opacity: 1, duration: 1 }, "3");
+    listAnim.fromTo(".content", { opacity: 0 }, { opacity: 1, duration: 1 }, "3");
   }
 
   customOptions: OwlOptions = {
@@ -49,6 +52,24 @@ export class AlausListComponent implements OnInit {
     },
     nav: true
   }
+
+public rodytiTamsu():void {
+  this.tamsus = true;
+  this.sviesus = false;
+  this.visi = false;
+}
+
+public rodytiSviesu():void {
+  this.tamsus = false;
+  this.sviesus = true;
+  this.visi = false;
+}
+
+public rodytiVisus():void {
+  this.tamsus = false;
+  this.sviesus = false;
+  this.visi = true;
+}
 
   public addToFavorites(itemId: number, imageUrl:string) {
     // [] <--- Taip susikuria naujas masyvas

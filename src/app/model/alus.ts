@@ -1,6 +1,7 @@
 export class Alus {
   public constructor(
     public id: number = 0,
+    public attribute = "",
     public name: string = "",
     public description: string = "",
     public image_url: string = '',

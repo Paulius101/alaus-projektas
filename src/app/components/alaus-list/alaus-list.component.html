@@ -1,8 +1,32 @@
-<a routerLink="/favorites">Mėgstamiausi: {{favoritesService.favorites.length}}</a><br>
-<div class="list">
-    <owl-carousel-o [options]="customOptions">
-        <ng-template carouselSlide *ngFor="let beer of alausService.bearList">
-            <app-alus-item [alus]="beer" (onItemAdded)="addToFavorites(beer.id, beer.image_url)" (onItemRemoved)="removeFromFavorites(beer.id)"></app-alus-item>
-        </ng-template>
-    </owl-carousel-o>
+<a routerLink="/favorites">Mėgstamiausi: {{favoritesService.favorites.length}}</a>
+<div class="content">
+    <div class="filters">
+        <button (click)="rodytiTamsu()">Tamsus alus</button>
+        <button (click)="rodytiSviesu()">Šviesus alus</button>
+        <button (click)="rodytiVisus()">Visi</button>
+    </div>
+    <div class="list" *ngIf="tamsus">
+        <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide *ngFor="let beer of (alausService.bearList | tamsusAlus: alausService.bearList )">
+                <app-alus-item [alus]="beer" (onItemAdded)="addToFavorites(beer.id, beer.image_url)" (onItemRemoved)="removeFromFavorites(beer.id)"></app-alus-item>
+            </ng-template>
+        </owl-carousel-o>
+    </div>
+
+
+    <div class="list" *ngIf="sviesus">
+        <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide *ngFor="let beer of (alausService.bearList | sviesusAlus: alausService.bearList )">
+                <app-alus-item [alus]="beer" (onItemAdded)="addToFavorites(beer.id, beer.image_url)" (onItemRemoved)="removeFromFavorites(beer.id)"></app-alus-item>
+            </ng-template>
+        </owl-carousel-o>
+    </div>
+
+    <div class="list" *ngIf="visi">
+        <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide *ngFor="let beer of alausService.bearList">
+                <app-alus-item [alus]="beer" (onItemAdded)="addToFavorites(beer.id, beer.image_url)" (onItemRemoved)="removeFromFavorites(beer.id)"></app-alus-item>
+            </ng-template>
+        </owl-carousel-o>
+    </div>
 </div>
