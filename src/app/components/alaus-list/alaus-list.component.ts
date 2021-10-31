@@ -11,23 +11,39 @@ import {
 import {
   OwlOptions
 } from 'ngx-owl-carousel-o';
-import { gsap} from 'gsap';
-import { FavoritesService } from 'src/app/services/favorites.service';
+import {
+  gsap
+} from 'gsap';
+import {
+  FavoritesService
+} from 'src/app/services/favorites.service';
 
 @Component({
   selector: 'app-alaus-list',
   templateUrl: './alaus-list.component.html',
   styleUrls: ['./alaus-list.component.scss']
 })
-export class AlausListComponent implements OnInit {
-public tamsus:boolean=false;
-public sviesus:boolean=false;
-public visi:boolean=true;
 
-  constructor(public alausService: AlausServiceService,public favoritesService:FavoritesService ) {}
+export class AlausListComponent implements OnInit {
+public tipas?:string;
+public order?:string
+  public tamsus: boolean = false;
+  public sviesus: boolean = false;
+  public visi: boolean = true;
+  public beerList ? : Alus[]
+  constructor(public alausService: AlausServiceService, public favoritesService: FavoritesService) {}
   ngOnInit(): void {
-    const listAnim = gsap.timeline({ defaults: { ease: "power1.out" } });
-    listAnim.fromTo(".content", { opacity: 0 }, { opacity: 1, duration: 1 }, "3");
+    const listAnim = gsap.timeline({
+      defaults: {
+        ease: "power1.out"
+      }
+    });
+    listAnim.fromTo(".content", {
+      opacity: 0
+    }, {
+      opacity: 1,
+      duration: 1
+    }, "3");
   }
 
   customOptions: OwlOptions = {
@@ -48,44 +64,45 @@ public visi:boolean=true;
       940: {
         items: 1
       },
-   
+
     },
     nav: true
   }
 
-public rodytiTamsu():void {
-  this.tamsus = true;
-  this.sviesus = false;
-  this.visi = false;
-}
+  public rodytiTamsu(): void {
+    this.tipas = 'tamsus'
+  }
 
-public rodytiSviesu():void {
-  this.tamsus = false;
-  this.sviesus = true;
-  this.visi = false;
-}
+  public rodytiSviesu(): void {
+   this.tipas = 'sviesus'
+  }
 
-public rodytiVisus():void {
-  this.tamsus = false;
-  this.sviesus = false;
-  this.visi = true;
-}
+  public rodytiVisus(): void {
+  this.tipas = undefined
+  }
 
-  public addToFavorites(itemId: number, imageUrl:string) {
-    // [] <--- Taip susikuria naujas masyvas
-    // [...kitasMasyvas] <--- Taip į masyvą "pažeriami" kito masyvo elementai
-    // [1, 2, 3]
-    // [...kitasMasyvas, 1]
+
+  public pagalph () :void {
+    this.order = 'abv'
+  }
+  // public pagalph() {
+  //   this.beerList ? .sort((a, b) => {
+
+  //     return a.abv - b.abv;
+  //   })
+  // }
+
+  public addToFavorites(itemId: number) {
     this.favoritesService.favorites = [...this.favoritesService.favorites, itemId];
   }
 
-    public removeFromFavorites(itemId: number) {
+  public removeFromFavorites(itemId: number) {
     const itemIndex = this.favoritesService.favorites.indexOf(itemId);
 
     if (itemIndex !== -1)
       this.favoritesService.favorites.splice(itemIndex, 1);
 
-    this.favoritesService.favorites = [...this.favoritesService.favorites]; 
+    this.favoritesService.favorites = [...this.favoritesService.favorites];
   }
 
 }

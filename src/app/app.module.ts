@@ -12,8 +12,9 @@ import { FavortiesNormalizedPipe } from './pipes/favorties-normalized.pipe';
 import { IdToNamePipe } from './pipes/id-to-name.pipe';
 import { IdToImagePipe } from './pipes/id-to-image.pipe';
 import { DeadEndComponent } from './components/dead-end/dead-end.component';
-import { TamsusAlusPipe } from './pipes/tamsus-alus.pipe';
-import { SviesusAlusPipe } from './pipes/sviesus-alus.pipe';
+import { OrderPipe } from './pipes/order.pipe';
+import { AlausTipasPipe } from './pipes/alausTipas.pipe';
+import { IdToDescriptionPipe } from './pipes/id-to-description.pipe';
 
 @NgModule({
   declarations: [
@@ -27,8 +28,9 @@ import { SviesusAlusPipe } from './pipes/sviesus-alus.pipe';
     IdToImagePipe,
     DeadEndComponent,
     routesComponent,
-    TamsusAlusPipe,
-    SviesusAlusPipe
+    OrderPipe,
+    AlausTipasPipe,
+    IdToDescriptionPipe
   ],
   imports: [
     BrowserModule,

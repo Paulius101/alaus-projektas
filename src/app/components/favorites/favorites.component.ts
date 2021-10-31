@@ -11,7 +11,8 @@ import {
   styleUrls: ['./favorites.component.scss']
 })
 export class FavoritesComponent implements OnInit {
-
+public description:boolean=false;
+public favoriteCard:boolean=true;
   constructor(public favoritesService:FavoritesService, public alusService:AlausServiceService) { }
 
   ngOnInit(): void {
@@ -38,6 +39,16 @@ export class FavoritesComponent implements OnInit {
     },
     nav: true
   }
+
+public showDetails():any {
+  this.description = true;
+  this.favoriteCard = false;
+}
+
+public hideDetails():any {
+   this.description = false;
+  this.favoriteCard = true;
+}
 
   public removeFromFavorites(itemId: number) {
     const itemIndex = this.favoritesService.favorites.indexOf(itemId);
