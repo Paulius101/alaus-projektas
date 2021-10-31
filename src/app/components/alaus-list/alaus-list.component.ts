@@ -55,14 +55,14 @@ export class AlausListComponent implements OnInit {
     // [...kitasMasyvas] <--- Taip į masyvą "pažeriami" kito masyvo elementai
     // [1, 2, 3]
     // [...kitasMasyvas, 1]
-    this.favoritesService.favorites = [...this.favoritesService.favorites, {itemId, imageUrl}];
+    this.favoritesService.favorites = [...this.favoritesService.favorites, itemId];
   }
 
     public removeFromFavorites(itemId: number) {
     const itemIndex = this.favoritesService.favorites.indexOf(itemId);
 
     if (itemIndex !== -1)
-      this.favoritesService.favorites.splice(itemIndex, 2);
+      this.favoritesService.favorites.splice(itemIndex, 1);
 
     this.favoritesService.favorites = [...this.favoritesService.favorites]; 
   }

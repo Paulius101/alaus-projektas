@@ -17,4 +17,6 @@ export class AlausServiceService {
     console.log(this.bearList);
     
   }
+
+  
 }

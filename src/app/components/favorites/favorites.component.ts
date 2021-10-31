@@ -4,6 +4,7 @@ import { AlausServiceService } from 'src/app/services/alaus-service.service';
 import {
   OwlOptions
 } from 'ngx-owl-carousel-o';
+
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.html',
@@ -31,10 +32,19 @@ export class FavoritesComponent implements OnInit {
         items: 1
       },
       940: {
-        items: 3
+        items: 1
       },
    
     },
     nav: true
+  }
+
+  public removeFromFavorites(itemId: number) {
+    const itemIndex = this.favoritesService.favorites.indexOf(itemId);
+
+    if (itemIndex !== -1)
+      this.favoritesService.favorites.splice(itemIndex, 1);
+
+    this.favoritesService.favorites = [...this.favoritesService.favorites]; 
   }
 }

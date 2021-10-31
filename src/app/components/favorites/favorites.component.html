@@ -2,8 +2,11 @@
 <div class="favorites">
     <owl-carousel-o [options]="customOptions">
         <ng-template carouselSlide *ngFor="let beer of (favoritesService.favorites | favortiesNormalized)">
-            <p>{{beer.itemId | idToName : alusService.bearList }}</p>
-            <img src="{{beer.itemId | idToImage: alusService.bearList}}" alt="image of some beer">
+            <div class="item">
+                <h1>{{beer.itemId | idToName : alusService.bearList }}</h1>
+                <img src="{{beer.itemId | idToImage: alusService.bearList}}" alt="image of some beer">
+                <button (click)="removeFromFavorites(beer.itemId)">Išimti iš mėgstamiausių</button>
+            </div>
         </ng-template>
     </owl-carousel-o>
 </div>
