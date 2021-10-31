@@ -5,5 +5,9 @@ html {
 }
 
 html body {
-  background-color: #d34f4f;
+  background-image: url(./assets/beer.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }

@@ -17,6 +17,7 @@ a:hover {
   width: 80vw;
   height: 100vh;
   margin-bottom: 10%;
+  margin-top: 2%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -92,8 +93,8 @@ a:hover {
 .content .list {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
   gap: 30px;
   background-color: #435baf;
 }

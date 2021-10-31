@@ -8,8 +8,10 @@
         <button (click)="pagalAlk()">Rikiuoti pagal alkoholio tūrį</button>
     </div>
 
-    <div class="list" *ngFor="let beer of (alausService.bearList | alausTipas:tipas | order :order )">
-        <app-alus-item [alus]="beer" (onItemAdded)="addToFavorites(beer.id)" (onItemRemoved)="removeFromFavorites(beer.id)"></app-alus-item>
+    <div class="list">
+        <div class="item" *ngFor="let beer of (alausService.bearList | alausTipas:tipas | order :order )">
+            <app-alus-item [alus]="beer" (onItemAdded)="addToFavorites(beer.id)" (onItemRemoved)="removeFromFavorites(beer.id)"></app-alus-item>
+        </div>
     </div>
 
 </div>
