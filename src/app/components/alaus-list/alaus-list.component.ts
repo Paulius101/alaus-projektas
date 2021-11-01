@@ -22,12 +22,8 @@ import {
 })
 
 export class AlausListComponent implements OnInit {
-public tipas?:string;
-public order?:string
-  public tamsus: boolean = false;
-  public sviesus: boolean = false;
-  public visi: boolean = true;
-  public beerList ? : Alus[]
+  public tipas ? : string;
+  public order ? : string
   constructor(public alausService: AlausServiceService, public favoritesService: FavoritesService) {}
   ngOnInit(): void {
     const listAnim = gsap.timeline({
@@ -49,23 +45,22 @@ public order?:string
   }
 
   public rodytiSviesu(): void {
-   this.tipas = 'sviesus'
+    this.tipas = 'sviesus'
   }
 
   public rodytiVisus(): void {
-  this.tipas = undefined
+    this.tipas = undefined
   }
 
 
-  public pagalAlk () :void {
+  public pagalAlk(): void {
     this.order = 'abv'
   }
-  // public pagalph() {
-  //   this.beerList ? .sort((a, b) => {
 
-  //     return a.abv - b.abv;
-  //   })
-  // }
+  public pagalPavadinima():void {
+    this.order = 'name'
+  }
+
 
   public addToFavorites(itemId: number) {
     this.favoritesService.favorites = [...this.favoritesService.favorites, itemId];
