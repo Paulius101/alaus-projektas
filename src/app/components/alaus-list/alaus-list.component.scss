@@ -1,10 +1,12 @@
 $color: rgb(67, 91, 175);
+$color1:white;
 
 a {
   transform: none;
-  color: #fff;
+  color: $color1;
   text-transform: uppercase;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
+  font-weight: bolder;
   letter-spacing: .20rem;
   padding: .75rem 1.25rem;
   border-radius: 16rem;
