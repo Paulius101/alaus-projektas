@@ -3,13 +3,13 @@
     <owl-carousel-o [options]="customOptions">
         <ng-template carouselSlide *ngFor="let beer of (favoritesService.favorites | favortiesNormalized)">
             <div class="item" *ngIf="favoriteCard">
-                <h1>{{beer.itemId | idToName : alusService.bearList }}</h1>
-                <img src="{{beer.itemId | idToImage: alusService.bearList}}" alt="image of some beer">
+                <h1>{{beer.itemId | idToName : alusService.beerList }}</h1>
+                <img src="{{beer.itemId | idToImage: alusService.beerList}}" alt="image of some beer">
                 <button (click)="showDetails()">Daugiau informacijos</button>
                 <button (click)="favoritesService.removeFromFavorites(beer.itemId); postMessageForRemovedFavorite()">Išimti iš mėgstamiausių</button>
             </div>
             <div class="description" *ngIf="description">
-                <p> {{beer.itemId | idToDescription: alusService.bearList}} </p>
+                <p> {{beer.itemId | idToDescription: alusService.beerList}} </p>
                 <button (click)="hideDetails()">Grįžti</button>
             </div>
         </ng-template>

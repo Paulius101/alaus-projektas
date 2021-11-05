@@ -16,6 +16,7 @@ import { OrderPipe } from './pipes/order.pipe';
 import { AlausTipasPipe } from './pipes/alausTipas.pipe';
 import { IdToDescriptionPipe } from './pipes/id-to-description.pipe';
 import { MessagesComponent } from './components/messages/messages.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MessagesComponent } from './components/messages/messages.component';
   imports: [
     BrowserModule,
     AppRoutingModule,CarouselModule, 
+     HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

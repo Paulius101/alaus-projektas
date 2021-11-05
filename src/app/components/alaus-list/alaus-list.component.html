@@ -8,10 +8,11 @@
         <button (click)="rodytiVisus()">Visi</button>
         <button (click)="pagalAlk()">Rikiuoti pagal alkoholio tūrį</button>
         <button (click)="pagalPavadinima()">Rikiuoti pagal pavadinima</button>
+        <button (click)="alausService.getItems()">Gauti alaus</button>
     </div>
 
     <div class="list">
-        <div class="item" *ngFor="let beer of (alausService.bearList | alausTipas:tipas | order :order )">
+        <div class="item" *ngFor="let beer of (alausService.beerList | alausTipas:tipas | order :order )">
             <app-alus-item [alus]="beer" (onItemAdded)="favoritesService.addToFavorites(beer.id)" (onItemRemoved)="favoritesService.removeFromFavorites(beer.id)"></app-alus-item>
         </div>
     </div>
