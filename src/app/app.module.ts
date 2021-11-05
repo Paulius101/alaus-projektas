@@ -15,6 +15,7 @@ import { DeadEndComponent } from './components/dead-end/dead-end.component';
 import { OrderPipe } from './pipes/order.pipe';
 import { AlausTipasPipe } from './pipes/alausTipas.pipe';
 import { IdToDescriptionPipe } from './pipes/id-to-description.pipe';
+import { MessagesComponent } from './components/messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { IdToDescriptionPipe } from './pipes/id-to-description.pipe';
     routesComponent,
     OrderPipe,
     AlausTipasPipe,
-    IdToDescriptionPipe
+    IdToDescriptionPipe,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

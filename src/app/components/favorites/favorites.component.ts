@@ -4,6 +4,8 @@ import { AlausServiceService } from 'src/app/services/alaus-service.service';
 import {
   OwlOptions
 } from 'ngx-owl-carousel-o';
+import { MessagesService } from 'src/app/services/messages.service';
+import { NotificationType } from 'src/app/model/notification';
 
 @Component({
   selector: 'app-favorites',
@@ -13,7 +15,7 @@ import {
 export class FavoritesComponent implements OnInit {
 public description:boolean=false;
 public favoriteCard:boolean=true;
-  constructor(public favoritesService:FavoritesService, public alusService:AlausServiceService) { }
+  constructor(public favoritesService:FavoritesService, public alusService:AlausServiceService, private messagesService:MessagesService) { }
 
   ngOnInit(): void {
   }
@@ -57,5 +59,12 @@ public hideDetails():any {
       this.favoritesService.favorites.splice(itemIndex, 1);
 
     this.favoritesService.favorites = [...this.favoritesService.favorites]; 
+  }
+
+  public postMessageForRemovedFavorite():void {
+ this.messagesService.postMessage({
+  message: "Alus pašalintas iš mėgstamiausių sąrašo!",
+  type: NotificationType.Error
+})
   }
 }

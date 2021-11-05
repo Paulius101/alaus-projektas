@@ -1,0 +1,30 @@
+:host {
+  width: 350px;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 5
+}
+
+.message {
+  font-family: 'Lobster';
+  font-size: 1.8rem;
+  color: white;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  margin-bottom: 20px;
+  background-color: white;
+
+  &.error {
+    background-color: lightcoral;
+  }
+
+  &.success {
+    background-color: rgb(67, 91, 175);
+  }
+
+  &.warning {
+    background-color: lightyellow;
+  }
+}

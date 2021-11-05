@@ -7,7 +7,7 @@
         <p class="details">pH: {{alus.ph}}.</p>
     </div>
     <div class="buttons">
-        <button (click)="onItemAdded.emit()">Pridėti į mėgstamiausius</button>
-        <button (click)="onItemRemoved.emit()">Išimti iš mėgstamiausių</button>
+        <button (click)="onItemAdded.emit(); postMessageForAddedFavorite() ">Pridėti į mėgstamiausius</button>
+        <button (click)="onItemRemoved.emit(); postMessageForRemovedFavorite()">Išimti iš mėgstamiausių</button>
     </div>
 </div>
