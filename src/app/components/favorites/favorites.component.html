@@ -6,7 +6,7 @@
                 <h1>{{beer.itemId | idToName : alusService.bearList }}</h1>
                 <img src="{{beer.itemId | idToImage: alusService.bearList}}" alt="image of some beer">
                 <button (click)="showDetails()">Daugiau informacijos</button>
-                <button (click)="removeFromFavorites(beer.itemId); postMessageForRemovedFavorite()">Išimti iš mėgstamiausių</button>
+                <button (click)="favoritesService.removeFromFavorites(beer.itemId); postMessageForRemovedFavorite()">Išimti iš mėgstamiausių</button>
             </div>
             <div class="description" *ngIf="description">
                 <p> {{beer.itemId | idToDescription: alusService.bearList}} </p>
