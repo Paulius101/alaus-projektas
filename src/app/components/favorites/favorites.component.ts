@@ -52,15 +52,6 @@ public hideDetails():any {
   this.favoriteCard = true;
 }
 
-  public removeFromFavorites(itemId: number) {
-    const itemIndex = this.favoritesService.favorites.indexOf(itemId);
-
-    if (itemIndex !== -1)
-      this.favoritesService.favorites.splice(itemIndex, 1);
-
-    this.favoritesService.favorites = [...this.favoritesService.favorites]; 
-  }
-
   public postMessageForRemovedFavorite():void {
  this.messagesService.postMessage({
   message: "Alus pašalintas iš mėgstamiausių sąrašo!",
