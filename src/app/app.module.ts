@@ -11,7 +11,6 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
 import { FavortiesNormalizedPipe } from './pipes/favorties-normalized.pipe';
 import { IdToNamePipe } from './pipes/id-to-name.pipe';
 import { IdToImagePipe } from './pipes/id-to-image.pipe';
-import { DeadEndComponent } from './components/dead-end/dead-end.component';
 import { OrderPipe } from './pipes/order.pipe';
 import { AlausTipasPipe } from './pipes/alausTipas.pipe';
 import { IdToDescriptionPipe } from './pipes/id-to-description.pipe';
@@ -28,7 +27,6 @@ import {HttpClientModule} from "@angular/common/http";
     FavortiesNormalizedPipe,
     IdToNamePipe,
     IdToImagePipe,
-    DeadEndComponent,
     routesComponent,
     OrderPipe,
     AlausTipasPipe,
