@@ -26,6 +26,8 @@ export class AlausListComponent implements OnInit {
   public order ? : string
   constructor(public alausService: AlausServiceService, public favoritesService: FavoritesService) {}
   ngOnInit(): void {
+    this.alausService.getItems();
+    
     const listAnim = gsap.timeline({
       defaults: {
         ease: "power1.out"
